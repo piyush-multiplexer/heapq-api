@@ -1,12 +1,12 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import heapq
 
 app = Flask(__name__)
 
 
-@app.route('/', methods=['GET'])
+@app.route('/')
 def index():
-    return {'message': 'Are you sure, whatever you are doing??'}
+    return render_template('index.html')
 
 
 @app.route('/nlargest', methods=['POST'])
@@ -18,4 +18,4 @@ def nlargest():
 
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)
